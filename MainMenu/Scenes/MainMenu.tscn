@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://RocketLaunch/Scenes/World.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MainMenu/Scripts/MainMenu.cs" type="Script" id=2]
+[ext_resource path="res://Piggy/Scenes/World_Piggy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/PixelFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://SpaceShooter/Scenes/StartMenu.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 2 )
+rocketLaunchScene = ExtResource( 1 )
+piggyScene = ExtResource( 3 )
+spaceShooterScene = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_top = 0.00196423
+anchor_right = 1.0
+anchor_bottom = 1.00196
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button Container" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -22.0
+margin_right = 52.0
+margin_bottom = 23.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RocketLaunchButton" type="Button" parent="Button Container"]
+margin_right = 104.0
+margin_bottom = 6.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = ExtResource( 4 )
+text = "Rocket Launch"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Piggy" type="Button" parent="Button Container"]
+margin_top = 20.0
+margin_right = 104.0
+margin_bottom = 26.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+text = "Piggy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceShooter" type="Button" parent="Button Container"]
+margin_top = 40.0
+margin_right = 104.0
+margin_bottom = 46.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+text = "Space Shooter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button Container/RocketLaunchButton" to="." method="_on_RocketLaunchButton_pressed"]
+[connection signal="pressed" from="Button Container/Piggy" to="." method="_on_Piggy_pressed"]
+[connection signal="pressed" from="Button Container/SpaceShooter" to="." method="_on_SpaceShooter_pressed"]

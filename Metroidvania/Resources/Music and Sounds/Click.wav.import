@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Click.wav-8ccb6a538a10f8280403e20e1431250c.sample"
+
+[deps]
+
+source_file="res://Metroidvania/Resources/Music and Sounds/Click.wav"
+dest_files=[ "res://.import/Click.wav-8ccb6a538a10f8280403e20e1431250c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

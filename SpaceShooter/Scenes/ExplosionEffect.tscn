@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SpaceShooter/Resources/Explode.wav" type="AudioStream" id=1]
+[ext_resource path="res://SpaceShooter/Resources/Explosion.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Explode"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="ExplosionEffect" type="Sprite"]
+texture = ExtResource( 2 )
+hframes = 6
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Explode"
+anims/Explode = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "Animations:
+-Explode: The explode animation will play for 0.5 seconds with 1 frame every 0.1 seconds
+
+In order to recreate the Functions Track, simply go to Add Track and select \"Call Method Track\". This will add a Functions Track and in this example it is used to queue_free(), which will delete the Explosion Node from the Tree"
+}
+
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true

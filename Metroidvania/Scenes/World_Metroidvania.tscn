@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Metroidvania/Resources/World/Brick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Metroidvania/Resources/Player/Player.tscn" type="PackedScene" id=2]
+
+[node name="World" type="Node"]
+
+[node name="Brick" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 160 )
+
+[node name="Brick2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 160 )
+
+[node name="Brick3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 160 )
+
+[node name="Brick4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 160 )
+
+[node name="Brick5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 160 )
+
+[node name="Brick6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 80, 160 )
+
+[node name="Brick7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 160 )
+
+[node name="Brick8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 144 )
+
+[node name="Brick9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 144 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 79, 121 )
+
+[node name="CameraFollow" parent="Player" index="3"]
+remote_path = NodePath("../../Camera")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 79, 113 )
+current = true
+smoothing_enabled = true
+__meta__ = {
+"_editor_description_": "Drag Margin H and V Enabled: 
+ON: Camera will move when the player gets to the edge of the Camera bounds
+OFF: Continous Following of Player
+
+Current:
+ON: Turn on camera by default
+
+Smoothing: Delays Camera Movement"
+}
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain"]
+polygon = PoolVector2Array( 0, 0, -32, 0, -32, 208, 144, 208, 176, 176, 208, 176, 208, 192, 288, 192, 336, 224, 368, 224, 368, 0, 384, 0, 384, 256, -48, 256, -48, -16, 0, -16 )
+
+[editable path="Player"]

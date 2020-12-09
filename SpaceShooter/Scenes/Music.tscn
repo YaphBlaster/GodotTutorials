@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SpaceShooter/Resources/Music.ogg" type="AudioStream" id=1]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -2.0
+__meta__ = {
+"_editor_description_": "To make music play through several scenes persistently, you can use the Auto Load feature.
+
+Setting up Auto Load:
+> Go to Project Settings
+> Press Autoload
+> Add a scene
+> Set the Singleton flag to true"
+}
